@@ -10,49 +10,48 @@ description: "This endpoint creates a new conversation session"
   This is an array object of agents involved in a conversation
   session. Each agent contains the meta information and the memory
   associated with it.
+
+  <Expandable title="Fields">
   
-<Expandable title="Toggle object">
+    <ResponseField name="agent_name" type="string">
+      This is the name of an agent.
+    </ResponseField>
 
-<ParamField name="agent_name" type="string">
-  This is the name of an agent.
-</ParamField>
+    <ResponseField name="age" type="number">
+      This is the age of an agent.
+    </ResponseField>
 
-<ParamField name="age" type="number">
-  This is the age of an agent.
-</ParamField>
+    <ResponseField name="personality" type="string">
+      This is the personality of an agent.
+    </ResponseField>
 
-<ParamField name="personality" type="string">
-  This is the personality of an agent.
-</ParamField>
+    <ResponseField name="status" type="string">
+      This is the current status of an agent.
+    </ResponseField>
 
-<ParamField name="status" type="string">
-  This is the current status of an agent.
-</ParamField>
+    <ResponseField name="memory" type="object">
+      This is the memory of an agent.
+    </ResponseField>
 
-<ParamField name="memory" type="object">
-  This is the memory of an agent.
-</ParamField>
-
-</Expandable>
+  </Expandable>
 
 </ParamField>
 
 <ParamField body="model" type="object">
   This is a JSON object of the user selected large language model. It contains
   the model name and the api key or token.
+  
+  // there is a bug that expandable fields need to be wrapped as ResponseField
+  <Expandable title="Fields">
+    <ResponseField name="name" type="string">
+      This is the selected model name.
+    </ResponseField>
 
-<Expandable title="Toggle object">
+    <ResponseField name="token" type="string">
+      This is the model token or API key.
+    </ResponseField>
 
-<ParamField name="name" type="string">
-  This is the selected model name.
-</ParamField>
-
-<ParamField name="token" type="string">
-  This is the model token or API key.
-</ParamField>
-
-</Expandable>
-
+  </Expandable>
 </ParamField>
 
 ### Response
