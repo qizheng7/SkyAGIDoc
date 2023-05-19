@@ -1,5 +1,5 @@
 ---
-title: "Create a conversation session"
+title: "Create conversation"
 api: "POST https://api.mintlify.com/api/conversation"
 description: "This endpoint creates a new conversation session"
 ---
@@ -56,6 +56,10 @@ description: "This endpoint creates a new conversation session"
 
 ### Response
 
+<ResponseField name="success" type="number">
+  If the conversation creations succeeds, return 1; otherwise, return 0.
+</ResponseField>
+
 <ResponseField name="conversation_id" type="string">
   The ID of the created conversation.
 </ResponseField>
@@ -93,6 +97,7 @@ curl --location --request POST 'https://api.mintlify.com/api/customer' \
 
 ```json Response
 {
+  "success": "1",
   "conversation_id": "xxxxxxxxxxxxxx"
 }
 ```

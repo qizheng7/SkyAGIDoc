@@ -1,0 +1,54 @@
+---
+title: "Get an agent's memory"
+api: "GET https://api.mintlify.com/api/memory"
+description: "This endpoint get an agent's memory"
+---
+
+### Body
+
+<ParamField body="conversation_id" type="string">
+  This is the ID of the conversation.
+</ParamField>
+
+<ParamField body="agent_name" type="string">
+  This is the name of the agent.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="memory" type="object">
+  The list of the agent's memory.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request GET 'https://api.mintlify.com/api/memory' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "conversation_id": "xxxxxxxxxxxxx",
+    "agent_name": "Penny"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": 1,
+  "memory": [
+    "Penny is originally from a small town in Nebraska and moved....",
+    "Penny works as a waitress at the Cheesecake Factory, a job...",
+    "Penny is a fan of pop culture, particularly TV shows and movies..."
+  ]
+}
+```
+
+</ResponseExample>
