@@ -21,13 +21,20 @@
     "name": "Get Started",
     "url": "https://skyagi.ai"
   },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "rectangle-terminal",
+      "url": "api-reference"
+    }
+  ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "api-reference/api-home"]
+      "pages": ["introduction"]
     },
     {
-      "group": "API Documentation",
+      "group": "API Reference",
       "pages": ["api-reference/api-home"]
     },
     {
