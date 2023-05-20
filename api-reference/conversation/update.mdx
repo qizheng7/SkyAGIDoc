@@ -28,6 +28,23 @@ description: "This endpoint sends a message from one agent to another."
   exclusive to the agent_message.
 </ParamField>
 
+<ParamField body="model" type="object">
+  This is a JSON object of the user selected large language model. It contains
+  the model name and the api key or token.
+  
+  // there is a bug that expandable fields need to be wrapped as ResponseField
+  <Expandable title="Fields">
+    <ResponseField name="name" type="string">
+      This is the selected model name.
+    </ResponseField>
+
+    <ResponseField name="token" type="string">
+      This is the model token or API key.
+    </ResponseField>
+
+  </Expandable>
+</ParamField>
+
 ### Response
 
 <ResponseField name="success" type="number">
@@ -58,7 +75,12 @@ curl --location --request PUT 'https://api.mintlify.com/api/conversation' \
     "conversation_id": "xxxxxxxxxxxx",
     "initiate_agent_name": "Penny",
     "recipient_agent_name": "Leonard",
-    "agent_message": "hello Leonard."
+    "agent_message": "hello Leonard.",
+    "model": {
+      "name": "gpt-3.5-turbo",
+      "token": "xxxxxxxxxxxx",
+    }
+
 }'
 ```
 
