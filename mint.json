@@ -14,23 +14,24 @@
   "topbarLinks": [
     {
       "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "url": "api-reference"
     }
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://github.com/mintlify/starter"
+    "url": "https://skyagi.ai"
   },
-  "anchors": [
-    {
-      "name": "API Reference",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
-    }
-  ],
   "navigation": [
     {
-      "group": "Endpoints",
+      "group": "Home",
+      "pages": ["introduction", "api-reference/api-home"]
+    },
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/api-home"]
+    },
+    {
+      "group": "APIs",
       "pages": [
         {
           "group": "conversation",
@@ -44,6 +45,14 @@
           "group": "memory",
           "pages": [
             "api-reference/memory/get"
+          ]
+        },
+        {
+          "group": "chat",
+          "pages": [
+            "api-reference/chat/create",
+            "api-reference/chat/update",
+            "api-reference/chat/delete"
           ]
         }
       ]

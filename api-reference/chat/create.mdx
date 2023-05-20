@@ -1,14 +1,14 @@
 ---
-title: "Create conversation"
-api: "POST https://api.mintlify.com/api/conversation"
-description: "This endpoint creates a new conversation session"
+title: "Create direct chat"
+api: "POST https://api.mintlify.com/api/chat"
+description: "This endpoint creates a direct chat with an agent"
 ---
 
 ### Body
 
-<ParamField body="agents" type="object">
-  This is an array object of agents involved in a conversation
-  session. Each agent contains the meta information and the memory
+<ParamField body="agent" type="object">
+  This is an object of the agent involved in a chat
+  session. The agent contains the meta information and the memory
   associated with it.
 
   <Expandable title="Fields">
@@ -60,14 +60,14 @@ description: "This endpoint creates a new conversation session"
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="conversation_id" type="string">
-  The ID of the created conversation.
+<ResponseField name="chat_id" type="string">
+  The ID of the created chat.
 </ResponseField>
 
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.mintlify.com/api/conversation' \
+curl --location --request POST 'https://api.mintlify.com/api/chat' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -98,7 +98,7 @@ curl --location --request POST 'https://api.mintlify.com/api/conversation' \
 ```json Response
 {
   "success": "1",
-  "conversation_id": "xxxxxxxxxxxxxx"
+  "chat_id": "xxxxxxxxxxxxxx"
 }
 ```
 

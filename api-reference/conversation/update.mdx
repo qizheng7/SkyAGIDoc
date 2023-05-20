@@ -19,7 +19,7 @@ description: "This endpoint sends a message from one agent to another."
 </ParamField>
 
 <ParamField body="agent_message" type="string" optional>
-  This is the message sent from the initiate agent to the recipient agent This
+  This is the message sent from the initiate agent to the recipient agent. This
   is mutual exclusive to the system_message.
 </ParamField>
 
@@ -31,7 +31,7 @@ description: "This endpoint sends a message from one agent to another."
 ### Response
 
 <ResponseField name="success" type="number">
-  If the conversation creations succeeds, return 1; otherwise, return 0.
+  Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
 <ResponseField name="resp_msg" type="string">
