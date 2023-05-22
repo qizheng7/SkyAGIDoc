@@ -1,0 +1,54 @@
+---
+title: "Create conversation"
+api: "PUT https://api.mintlify.com/api/create-conversation"
+description: "This endpoint creates a new conversation session"
+---
+
+### Body
+
+<ParamField body="name" type="string">
+  This is the name of the new conversation session.
+</ParamField>
+
+<ParamField body="agents" type="object">
+  This is an array of the agents involved in the conversation.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="conversation_id" type="string">
+  The ID of the created conversation.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/create-conversation' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "name": "Hello world for BigBangTheory",
+    "agents": [
+      "agent_id_1",
+      "agent_id_2",
+      ......
+    ]
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1",
+  "conversation_id": "xxxxxxxxxxxxxx"
+}
+```
+
+</ResponseExample>

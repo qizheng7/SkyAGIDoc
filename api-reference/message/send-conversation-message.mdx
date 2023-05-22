@@ -1,0 +1,98 @@
+---
+title: "Send conversation message"
+api: "PUT https://api.mintlify.com/api/send-conversation-message"
+description: "This endpoint sends a conversation message from one agent to another."
+---
+
+### Body
+
+<ParamField body="conversation_id" type="string">
+  This is the ID of the conversation.
+</ParamField>
+
+<ParamField body="initiate_agent" type="string">
+  This is the ID of the agent who initiates the conversation.
+</ParamField>
+
+<ParamField body="initiate_agent_model" type="object">
+  This is the model that the initiate agent uses, along with the model key.
+  <Expandable title="Fields">
+    <ResponseField name="name" type="string">
+      This is the selected model name.
+    </ResponseField>
+
+    <ResponseField name="token" type="string">
+      This is the model token or API key.
+    </ResponseField>
+
+  </Expandable>
+
+</ParamField>
+
+<ParamField body="recipient_agent" type="string">
+  This is the ID of the agent who receives the conversation.
+</ParamField>
+
+<ParamField body="recipient_agent_model" type="object">
+  This is the model that the recipient agent uses, along with the model key.
+  <Expandable title="Fields">
+    <ResponseField name="name" type="string">
+      This is the selected model name.
+    </ResponseField>
+
+    <ResponseField name="token" type="string">
+      This is the model token or API key.
+    </ResponseField>
+
+  </Expandable>
+
+</ParamField>
+
+<ParamField body="message" type="string" optional>
+  This is the message sent from the initiate agent to the recipient agent.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="resp_msg" type="string">
+  This is the response from the recipient agent to the initiate agent.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-message' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "conversation_id": "xxxxxxxxxxxx",
+    "initiate_agent_id": "xxxxxxxxxxxxxxx",
+    "initiate_agent_model": {
+      "name": "llama-13b",
+      "token": "xxxxxxxxxxxxxxxxx"
+    },
+    "recipient_agent_id": "xxxxxxxxxxxxx",
+    "recipient_agent_model": {
+      "name": "gpt-3.5-turbo",
+      "token": "xxxxxxxxxxxxxxxxx"
+    },
+    "agent_message": "hello Leonard."
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": 1,
+  "resp_msg": "hello Penny. How are you?"
+}
+```
+
+</ResponseExample>

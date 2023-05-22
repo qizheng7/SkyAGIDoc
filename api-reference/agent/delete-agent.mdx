@@ -1,13 +1,13 @@
 ---
-title: "Delete chat"
-api: "DELETE https://api.mintlify.com/api/chat"
-description: "This endpoint deletes an existing direct chat."
+title: "Delete an agent"
+api: "PUT https://api.mintlify.com/api/delete-agent"
+description: "This endpoint deletes an existing agent."
 ---
 
 ### Body
 
-<ParamField body="chat_id" type="string">
-  This is the ID of the chat.
+<ParamField body="agent_id" type="string">
+  This is the ID of the to-delete agent.
 </ParamField>
 
 ### Response
@@ -19,11 +19,11 @@ description: "This endpoint deletes an existing direct chat."
 <RequestExample>
 
 ```bash Example Request
-curl --location --request DELETE 'https://api.mintlify.com/api/chat' \
+curl --location --request PUT 'https://api.mintlify.com/api/delete-agent' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"chat_id": "xxxxxxxxxxxxxxx"
+		"agent_id": "xxxxxxxxxxxxxxx"
 }'
 ```
 

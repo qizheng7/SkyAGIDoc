@@ -1,0 +1,80 @@
+---
+title: "Get an agent"
+api: "PUT https://api.mintlify.com/api/get-agent"
+description: "This endpoint returns the information of an existing agent."
+---
+
+### Body
+
+<ParamField body="agent_id" type="string">
+  This is the ID of the agent.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="agent" type="object">
+  This is an object of the agent.
+
+  <Expandable title="Fields">
+  
+    <ResponseField name="name" type="string">
+      This is the name of an agent.
+    </ResponseField>
+
+    <ResponseField name="age" type="number">
+      This is the age of an agent.
+    </ResponseField>
+
+    <ResponseField name="personality" type="string">
+      This is the personality of an agent.
+    </ResponseField>
+
+    <ResponseField name="initial_status" type="string">
+      This is the initial status of an agent.
+    </ResponseField>
+
+    <ResponseField name="initial_memory" type="object">
+      This is the initial memory of an agent.
+    </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/get-agent' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "agent_id": "xxxxxxxxxxxxxx"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1",
+  "agent": {
+    "name": "Penny",
+    "age": 22,
+    "personality": "Outgoing, friendly, compassionate, assertive, and determined",
+    "initial_status": "Penny is at the Cheesecake Factory",
+    "initial_memory": [
+      "Penny is originally from a small town in Nebraska and moved....",
+      "Penny works as a waitress at the Cheesecake Factory, a job...",
+      "Penny is a fan of pop culture, particularly TV shows and movies..."
+    ]
+  }
+}
+```
+
+</ResponseExample>

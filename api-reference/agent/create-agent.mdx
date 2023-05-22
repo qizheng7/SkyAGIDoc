@@ -1,15 +1,19 @@
 ---
-title: "Create direct chat"
-api: "POST https://api.mintlify.com/api/chat"
-description: "This endpoint creates a direct chat with an agent"
+title: "Create an agent"
+api: "PUT https://api.mintlify.com/api/create-agent"
+description: "This endpoint creates an agent."
 ---
 
 ### Body
 
+<ParamField body="user_id" type="str">
+  This is the ID of the user.
+</ParamField>
+
 <ParamField body="agent" type="object">
   This is an object of the agent involved in a chat
-  session. The agent contains the meta information and the memory
-  associated with it.
+  session. The agent contains the meta information and the initial
+  memory associated with it.
 
   <Expandable title="Fields">
   
@@ -26,32 +30,15 @@ description: "This endpoint creates a direct chat with an agent"
     </ResponseField>
 
     <ResponseField name="status" type="string">
-      This is the current status of an agent.
+      This is the initial status of an agent.
     </ResponseField>
 
     <ResponseField name="memory" type="object">
-      This is the memory of an agent.
+      This is the initial memory of an agent.
     </ResponseField>
 
   </Expandable>
 
-</ParamField>
-
-<ParamField body="model" type="object">
-  This is a JSON object of the user selected large language model. It contains
-  the model name and the api key or token.
-  
-  // there is a bug that expandable fields need to be wrapped as ResponseField
-  <Expandable title="Fields">
-    <ResponseField name="name" type="string">
-      This is the selected model name.
-    </ResponseField>
-
-    <ResponseField name="token" type="string">
-      This is the model token or API key.
-    </ResponseField>
-
-  </Expandable>
 </ParamField>
 
 ### Response
@@ -60,17 +47,18 @@ description: "This endpoint creates a direct chat with an agent"
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="chat_id" type="string">
-  The ID of the created chat.
+<ResponseField name="agent_id" type="string">
+  The ID of the created agent.
 </ResponseField>
 
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.mintlify.com/api/chat' \
+curl --location --request PUT 'https://api.mintlify.com/api/create-agent' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
+    "user_id": "xxxxxxxxxxxxxxxxx",
     "agents": [
       {
         "name": "Penny",
@@ -83,11 +71,7 @@ curl --location --request POST 'https://api.mintlify.com/api/chat' \
           "Penny is a fan of pop culture, particularly TV shows and movies..."
         ]
       }
-    ],
-    "model": {
-      "name": "gpt-3.5-turbo",
-      "token": "xxxxxxxxxxxx",
-    }
+    ]
 }'
 ```
 
@@ -98,7 +82,7 @@ curl --location --request POST 'https://api.mintlify.com/api/chat' \
 ```json Response
 {
   "success": "1",
-  "chat_id": "xxxxxxxxxxxxxx"
+  "agent_id": "xxxxxxxxxxxxxx"
 }
 ```
 

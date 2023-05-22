@@ -1,0 +1,84 @@
+---
+title: "Update an agent"
+api: "PUT https://api.mintlify.com/api/update-agent"
+description: "This endpoint updates an agent."
+---
+
+### Body
+
+<ParamField body="agent_id" type="str">
+  This is the ID of the agent.
+</ParamField>
+
+<ParamField body="agent" type="object">
+  This is an object of the agent involved in a chat
+  session. The agent contains the meta information and the initial
+  memory associated with it.
+
+  <Expandable title="Fields">
+  
+    <ResponseField name="agent_name" type="string" optional>
+      This is the name of an agent.
+    </ResponseField>
+
+    <ResponseField name="age" type="number" optional>
+      This is the age of an agent.
+    </ResponseField>
+
+    <ResponseField name="personality" type="string" optional>
+      This is the personality of an agent.
+    </ResponseField>
+
+    <ResponseField name="status" type="string" optional>
+      This is the initial status of an agent.
+    </ResponseField>
+
+    <ResponseField name="memory" type="object" optional>
+      This is the initial memory of an agent.
+    </ResponseField>
+
+  </Expandable>
+
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/update-agent' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "agent_id": "xxxxxxxxxxxxxxxxx",
+    "agents": [
+      {
+        "name": "Penny_2",
+        "age": 22,
+        "personality": "Outgoing_2, friendly_2, compassionate_2, assertive_2, and determined_2",
+        "status": "Penny_2 is at the Cheesecake Factory",
+        "memory": [
+          "Penny_2 is originally from a small town in Nebraska and moved....",
+          "Penny_2 works as a waitress at the Cheesecake Factory, a job...",
+          "Penny_2 is a fan of pop culture, particularly TV shows and movies..."
+        ]
+      }
+    ]
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1"
+}
+```
+
+</ResponseExample>

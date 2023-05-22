@@ -41,11 +41,20 @@
       "group": "APIs",
       "pages": [
         {
+          "group": "agent",
+          "pages": [
+            "api-reference/agent/create-agent",
+            "api-reference/agent/get-agent",
+            "api-reference/agent/get-agents",
+            "api-reference/agent/update-agent",
+            "api-reference/agent/delete-agent"
+          ]
+        },
+        {
           "group": "conversation",
           "pages": [
-            "api-reference/conversation/create",
-            "api-reference/conversation/update",
-            "api-reference/conversation/delete"
+            "api-reference/conversation/create-conversation",
+            "api-reference/conversation/get-conversations",
           ]
         },
         {
@@ -55,11 +64,16 @@
           ]
         },
         {
-          "group": "chat",
+          "group": "message",
           "pages": [
-            "api-reference/chat/create",
-            "api-reference/chat/update",
-            "api-reference/chat/delete"
+            "api-reference/message/send-conversation-message",
+            "api-reference/message/send-system-message"
+          ]
+        },
+        {
+          "group": "model",
+          "pages": [
+            "api-reference/model/get-models"
           ]
         }
       ]

@@ -1,0 +1,100 @@
+---
+title: "Get all agents of a user ID"
+api: "PUT https://api.mintlify.com/api/get-agents"
+description: "This endpoint returns the full lists of agents associated with a user ID."
+---
+
+### Body
+
+<ParamField body="user_id" type="string">
+  This is the ID of the user.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="agents" type="object">
+  This is an array of the agent objects.
+
+  <Expandable title="Fields">
+
+    <ResponseField name="id" type="string">
+      This is the ID of an agent.
+    </ResponseField>
+
+
+    <ResponseField name="name" type="string">
+      This is the name of an agent.
+    </ResponseField>
+
+    <ResponseField name="age" type="number">
+      This is the age of an agent.
+    </ResponseField>
+
+    <ResponseField name="personality" type="string">
+      This is the personality of an agent.
+    </ResponseField>
+
+    <ResponseField name="initial_status" type="string">
+      This is the initial status of an agent.
+    </ResponseField>
+
+    <ResponseField name="initial_memory" type="object">
+      This is the initial memory of an agent.
+    </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/get-agents' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "user_id": "xxxxxxxxxxxxxx"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1",
+  "agents": [
+    {
+      "id": "xxxxxxxxxxx",
+      "name": "Penny",
+      "age": 22,
+      "personality": "Outgoing, friendly, compassionate, assertive, and determined",
+      "status": "Penny is at the Cheesecake Factory",
+      "memory": [
+        "Penny is originally from a small town in Nebraska and moved....",
+        "Penny works as a waitress at the Cheesecake Factory, a job...",
+        "Penny is a fan of pop culture, particularly TV shows and movies..."
+      ]
+    },
+    {
+      "id": "xxxxxxxxxxx",
+      "name": "Leonard",
+      "age": 27,
+      "personality": "Intelligent, neurotic, kind, analytical, loyal.",
+      "status": "Leonard is at the Cheesecake Factory",
+      "memory": [
+        "Leonard is a physicist who works at Caltech with his friends Sheldon, Howard, and Raj.",
+        "Leonard is originally from New Jersey and has a strained relationship with his mother, who is often critical of him.",
+        "Leonard is known for his intelligence and academic achievements, but he also struggles with self-doubt and insecurity."
+      ]
+    }
+  ]
+}
+```
+
+</ResponseExample>
