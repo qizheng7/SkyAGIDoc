@@ -55,6 +55,7 @@
           "group": "conversation",
           "pages": [
             "api-reference/conversation/create-conversation",
+            "api-reference/conversation/get-conversation",
             "api-reference/conversation/get-conversations"
           ]
         },

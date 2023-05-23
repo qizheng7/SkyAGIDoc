@@ -1,0 +1,82 @@
+---
+title: "Get a conversation session"
+api: "PUT https://api.mintlify.com/api/get-conversation"
+description: "This endpoint returns a conversation session."
+---
+
+### Body
+
+<ParamField body="conversation_id" type="string">
+  This is the ID of the conversation.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the conversation.
+</ResponseField>
+
+<ResponseField name="messages" type="object">
+  This is the array of the messages. Each message object is as below.
+
+  <Expandable title="Fields">
+  
+    <ResponseField name="initiate_agent_id" type="string">
+      This is the ID of the initiate agent.
+    </ResponseField>
+
+    <ResponseField name="recipient_agent_id" type="string">
+      This is the ID of the recipient agent.
+    </ResponseField>
+
+    <ResponseField name="create_time" type="timestamp">
+      This is the time when the message was created.
+    </ResponseField>
+
+    <ResponseField name="message" type="string">
+      This is the summary of a conversation session.
+    </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/get-conversation' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+  "conversation_id": "xxxxxxxxxxxxxxx"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1",
+  "conversations": [
+    {
+      "name": "Hello world for BigBangTheory",
+      "messages": [
+        {
+          "initiate_agent_id": "xxxxxxxxxxx",
+          "recipient_agent_id": "xxxxxxxxxxx",
+          "create_time": "2016-06-22 19:10:25-07",
+          "message": "hello world"
+        }
+      ]
+    }
+  ]
+}
+```
+
+</ResponseExample>

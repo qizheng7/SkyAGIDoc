@@ -14,6 +14,10 @@ description: "This endpoint creates a new conversation session"
   This is an array of the agents involved in the conversation.
 </ParamField>
 
+<ParamField body="user_agents" type="object">
+  This is an array of the agents played by the user.
+</ParamField>
+
 ### Response
 
 <ResponseField name="success" type="number">
@@ -36,6 +40,10 @@ curl --location --request PUT 'https://api.mintlify.com/api/create-conversation'
       "agent_id_1",
       "agent_id_2",
       ......
+    ],
+    "user_agents": [
+      "agent_id_x",
+      "agent_id_y"
     ]
 }'
 ```
