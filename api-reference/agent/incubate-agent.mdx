@@ -1,0 +1,55 @@
+---
+title: "Create an agent based on an existing agent"
+api: "PUT https://api.mintlify.com/api/incubate-agent"
+description: "This endpoint creates an agent based on an existing agent from a particular conversation."
+---
+
+### Body
+
+<ParamField body="conversation_id" type="str">
+  This is the ID of the conversation.
+</ParamField>
+
+<ParamField body="agent_id" type="str">
+  This is the ID of the agent to incubate from.
+</ParamField>
+
+<ParamField body="agent_name" type="str">
+  This is the name of the new agent.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="agent_id" type="string">
+  The ID of the created agent.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/incubate-agent' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+  "conversation_id": "xxxxxxxxxxxxx",
+  "agent_id": "xxxxxxxxxxxxxxx",
+  "agent_name": "Penny 2"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1",
+  "agent_id": "xxxxxxxxxxxxxx"
+}
+```
+
+</ResponseExample>

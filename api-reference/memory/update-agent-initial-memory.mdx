@@ -1,0 +1,45 @@
+---
+title: "Update an agent's initial memory."
+api: "PUT https://api.mintlify.com/api/update-agent-initial-memory"
+description: "This endpoint updates an agent's initial memory based on a particular conversation."
+---
+
+### Body
+
+<ParamField body="conversation_id" type="str">
+  This is the ID of the conversation.
+</ParamField>
+
+<ParamField body="agent_id" type="str">
+  This is the ID of the agent.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request PUT 'https://api.mintlify.com/api/update-agent-initial-memory' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+  "conversation_id": "xxxxxxxxxxxxx",
+  "agent_id": "xxxxxxxxxxxxxxx"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": "1"
+}
+```
+
+</ResponseExample>

@@ -44,6 +44,7 @@
           "group": "agent",
           "pages": [
             "api-reference/agent/create-agent",
+            "api-reference/agent/incubate-agent",
             "api-reference/agent/get-agent",
             "api-reference/agent/get-agents",
             "api-reference/agent/update-agent",
@@ -60,7 +61,7 @@
         {
           "group": "memory",
           "pages": [
-            "api-reference/memory/get"
+            "api-reference/memory/update-agent-initial-memory"
           ]
         },
         {

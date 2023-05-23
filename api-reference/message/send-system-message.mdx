@@ -59,7 +59,7 @@ description: "This endpoint sends a system message to an agent."
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="resp_msg" type="string">
+<ResponseField name="resp_msg" type="object">
   This is the response from the initiate agent to either the system or the
   recipient agent.
 </ResponseField>
@@ -82,7 +82,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-system-message'
       "name": "gpt-3.5-turbo",
       "token": "xxxxxxxxxxxxxxxxx"
     },
-    "agent_message": "Do you have anything to ask Penny?"
+    "message": "Do you have anything to ask Penny?"
 }'
 ```
 
@@ -93,7 +93,10 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-system-message'
 ```json Response
 {
   "success": 1,
-  "resp_msg": "Yes. hello Penny. Do you want to take a walk?"
+  "resp_msg": {
+    "to_system": "Yes",
+    "to_agent": "hello Penny. Do you want to take a walk?"
+  }
 }
 ```
 
