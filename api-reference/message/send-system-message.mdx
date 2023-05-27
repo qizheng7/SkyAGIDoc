@@ -10,7 +10,7 @@ description: "This endpoint sends a system message to an agent."
   This is the ID of the conversation.
 </ParamField>
 
-<ParamField body="initiate_agent" type="string">
+<ParamField body="initiate_agent_id" type="string">
   This is the ID of the agent who will initiate the conversation.
 </ParamField>
 
@@ -29,7 +29,7 @@ description: "This endpoint sends a system message to an agent."
 
 </ParamField>
 
-<ParamField body="recipient_agent" type="string">
+<ParamField body="recipient_agent_id" type="string">
   This is the ID of the agent who receives the conversation.
 </ParamField>
 
@@ -48,7 +48,7 @@ description: "This endpoint sends a system message to an agent."
 
 </ParamField>
 
-<ParamField body="message" type="string" optional>
+<ParamField body="message" type="string">
   This is the system message sent to the initiate agent about whether it wants
   to initiate a message to the recipient agent.
 </ParamField>
