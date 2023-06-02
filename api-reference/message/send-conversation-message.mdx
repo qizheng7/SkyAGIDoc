@@ -58,8 +58,19 @@ description: "This endpoint sends a conversation message from one agent to anoth
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="resp_msg" type="string">
+<ResponseField name="resp_msg" type="object">
   This is the response from the recipient agent to the initiate agent.
+
+  <Expandable title="Fields">
+  <ResponseField name="if_continue" type="bool">
+    The flag indicating if the conversation will continue.
+  </ResponseField>
+
+  <ResponseField name="message" type="string">
+    The response message.
+  </ResponseField>
+  </Expandable>
+
 </ResponseField>
 
 <RequestExample>
