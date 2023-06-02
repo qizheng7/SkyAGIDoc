@@ -102,7 +102,10 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-me
 ```json Response
 {
   "success": 1,
-  "resp_msg": "hello Penny. How are you?"
+  "resp_msg": {
+    "if_continue": true,
+    "message": "hello Penny. How are you?"
+  }
 }
 ```
 
