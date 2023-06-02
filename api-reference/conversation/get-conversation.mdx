@@ -45,8 +45,8 @@ description: "This endpoint returns a conversation session."
       This is the time when the message was created.
     </ResponseField>
 
-    <ResponseField name="message" type="string">
-      This is the summary of a conversation session.
+    <ResponseField name="content" type="string">
+      This is the message content.
     </ResponseField>
 
   </Expandable>
@@ -71,17 +71,15 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-conversation' \
 ```json Response
 {
   "success": "1",
-  "conversations": [
+  "name": "Hello world for BigBangTheory",
+  "agent_ids": ["xxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxx"],
+  "user_agent_ids": ["xxxxxxxxxxxxxxx"],
+  "messages": [
     {
-      "name": "Hello world for BigBangTheory",
-      "messages": [
-        {
-          "initiate_agent_id": "xxxxxxxxxxx",
-          "recipient_agent_id": "xxxxxxxxxxx",
-          "create_time": "2016-06-22 19:10:25-07",
-          "message": "hello world"
-        }
-      ]
+      "initiate_agent_id": "xxxxxxxxxxx",
+      "recipient_agent_id": "xxxxxxxxxxx",
+      "create_time": "2016-06-22 19:10:25-07",
+      "content": "hello world"
     }
   ]
 }
