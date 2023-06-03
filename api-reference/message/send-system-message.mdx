@@ -48,6 +48,11 @@ description: "This endpoint sends a system message to an agent."
 
 </ParamField>
 
+<ParamField body="start_time" type="string">
+  This is the start_time of the message history based on which the system will
+  create response.
+</ParamField>
+
 <ParamField body="message" type="string">
   This is the system message sent to the initiate agent about whether it wants
   to initiate a message to the recipient agent.
@@ -82,6 +87,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-system-message'
       "name": "gpt-3.5-turbo",
       "token": "xxxxxxxxxxxxxxxxx"
     },
+    "start_time": "2023-06-01T01:06:23.415Z",
     "message": "Do you have anything to ask Penny?"
 }'
 ```
