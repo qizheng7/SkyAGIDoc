@@ -64,8 +64,8 @@ description: "This endpoint returns the full list of conversation sessions of a 
       This is the last snapshot of a conversation session.
       <Expandable title="Fields">
 
-        <ResponseField name="agent_name" type="string">
-        This is the name of an agent.
+        <ResponseField name="agent_id" type="string">
+        This is the ID of an agent.
         </ResponseField>
 
         <ResponseField name="message" type="string">
@@ -120,7 +120,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-conversations' \
       ],
       "snapshot": [
         {
-          "agent_name": "Penny",
+          "agent_id": "xxxxxxxxxxxxxx",
           "message": "Goodbye, Leonard"
         }
       ]
