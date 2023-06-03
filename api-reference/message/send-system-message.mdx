@@ -67,6 +67,15 @@ description: "This endpoint sends a system message to an agent."
 <ResponseField name="resp_msg" type="object">
   This is the response from the initiate agent to either the system or the
   recipient agent.
+  <Expandable title="Fields">
+  <ResponseField name="is_valid" type="bool">
+    The flag indicating if the response is valid. 
+  </ResponseField>
+
+  <ResponseField name="message" type="string">
+    The response message.
+  </ResponseField>
+  </Expandable>
 </ResponseField>
 
 <RequestExample>
