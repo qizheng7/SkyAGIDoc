@@ -44,11 +44,27 @@ description: "This endpoint returns the full list of conversation sessions of a 
       </Expandable>
     </ResponseField>
 
+    <ResponseField name="user_agents" type="object">
+      This is the list of the user agents involved in the conversation.
+      <Expandable title="Fields">
+
+        <ResponseField name="id" type="string">
+        This is the ID of an agent.
+        </ResponseField>
+
+        <ResponseField name="name" type="string">
+        This is the name of an agent.
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+
     <ResponseField name="snapshot" type="object">
       This is the last snapshot of a conversation session.
       <Expandable title="Fields">
 
-        <ResponseField name="agent" type="string">
+        <ResponseField name="agent_name" type="string">
         This is the name of an agent.
         </ResponseField>
 
@@ -94,11 +110,17 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-conversations' \
         {
           "id": "xxxxxxxxxxx",
           "name": "Leonard"
+        },
+      ],
+      "user_agents": [
+        {
+          "id": "xxxxxxxxxxx",
+          "name": "Penny"
         }
       ],
       "snapshot": [
         {
-          "agent": "Penny",
+          "agent_name": "Penny",
           "message": "Goodbye, Leonard"
         }
       ]
