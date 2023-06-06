@@ -20,7 +20,12 @@ description: "This endpoint returns the full list of conversation sessions of a 
   This is a list of conversation objects.
 
   <Expandable title="Fields">
-  
+
+    <ResponseField name="id" type="string">
+      This is the ID of a conversation session.
+    </ResponseField>
+
+
     <ResponseField name="name" type="string">
       This is the name of a conversation session.
     </ResponseField>
@@ -108,6 +113,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-conversations' \
   "success": "1",
   "conversations": [
     {
+      "id": "xxxxxxxxxxxxxxxxxxx",
       "name": "Hello world for BigBangTheory",
       "summary": "This conversation is about.....".
       "agents": [
