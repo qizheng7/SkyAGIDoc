@@ -10,8 +10,31 @@ description: "This endpoint creates a new conversation session"
   This is the name of the new conversation session.
 </ParamField>
 
-<ParamField body="agent_ids" type="object">
+<ParamField body="agents" type="object">
   This is an array of the agents involved in the conversation.
+  <Expandable title="Fields">
+    <ResponseField name="id" type="string">
+      This is the ID of an agent.
+    </ResponseField>
+
+    <ResponseField name="model" type="object">
+      This is the name of an agent.
+
+      <Expandable title="Fields">
+
+      <ResponseField name="name" type="string">
+          This is the selected model name.
+      </ResponseField>
+
+      <ResponseField name="token" type="string">
+          This is the model token or API key.
+      </ResponseField>
+
+      </Expandable>
+
+    </ResponseField>
+
+  </Expandable>
 </ParamField>
 
 <ParamField body="user_agent_ids" type="object">
@@ -36,14 +59,25 @@ curl --location --request PUT 'https://api.mintlify.com/api/create-conversation'
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "name": "Hello world for BigBangTheory",
-    "agent_ids": [
-      "agent_id_1",
-      "agent_id_2",
+    "agents": [
+      {
+        "id": "agent_id_1",
+        "model": {
+          "name": "model_1",
+          "token": "token"
+        }
+      },
+      {
+        "id": "agent_id_2",
+        "model": {
+          "name": "model_2",
+          "token": "token"
+        }
+      },
       ......
     ],
     "user_agent_ids": [
-      "agent_id_x",
-      "agent_id_y"
+      "agent_id_1"
     ]
 }'
 ```
