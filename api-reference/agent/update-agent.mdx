@@ -29,11 +29,11 @@ description: "This endpoint updates an agent."
       This is the personality of an agent.
     </ResponseField>
 
-    <ResponseField name="status" type="string" optional>
+    <ResponseField name="initial_status" type="string" optional>
       This is the initial status of an agent.
     </ResponseField>
 
-    <ResponseField name="memory" type="object" optional>
+    <ResponseField name="initial_memory" type="object" optional>
       This is the initial memory of an agent.
     </ResponseField>
 
@@ -73,8 +73,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/update-agent' \
         "name": "Penny_2",
         "age": 22,
         "personality": "Outgoing_2, friendly_2, compassionate_2, assertive_2, and determined_2",
-        "status": "Penny_2 is at the Cheesecake Factory",
-        "memory": [
+        "initial_status": "Penny_2 is at the Cheesecake Factory",
+        "initial_memory": [
           "Penny_2 is originally from a small town in Nebraska and moved....",
           "Penny_2 works as a waitress at the Cheesecake Factory, a job...",
           "Penny_2 is a fan of pop culture, particularly TV shows and movies..."

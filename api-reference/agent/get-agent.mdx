@@ -33,11 +33,11 @@ description: "This endpoint returns the information of an existing agent."
       This is the personality of an agent.
     </ResponseField>
 
-    <ResponseField name="status" type="string">
+    <ResponseField name="initial_status" type="string">
       This is the initial status of an agent.
     </ResponseField>
 
-    <ResponseField name="memory" type="object">
+    <ResponseField name="initial_memory" type="object">
       This is the initial memory of an agent.
     </ResponseField>
 
@@ -80,8 +80,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agent' \
     "name": "Penny",
     "age": 22,
     "personality": "Outgoing, friendly, compassionate, assertive, and determined",
-    "status": "Penny is at the Cheesecake Factory",
-    "memory": [
+    "initial_status": "Penny is at the Cheesecake Factory",
+    "initial_memory": [
       "Penny is originally from a small town in Nebraska and moved....",
       "Penny works as a waitress at the Cheesecake Factory, a job...",
       "Penny is a fan of pop culture, particularly TV shows and movies..."
