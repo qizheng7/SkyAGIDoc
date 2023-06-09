@@ -38,12 +38,25 @@ description: "This endpoint returns the full lists of agents associated with a u
       This is the personality of an agent.
     </ResponseField>
 
-    <ResponseField name="initial_status" type="string">
+    <ResponseField name="status" type="string">
       This is the initial status of an agent.
     </ResponseField>
 
-    <ResponseField name="initial_memory" type="object">
+    <ResponseField name="memory" type="object">
       This is the initial memory of an agent.
+    </ResponseField>
+
+    <ResponseField name="avatar" type="object" optional>
+      This is the avatar object of an agent
+      <Expandable title="Fields">
+        <ResponseField name="cloud_path" type="string">
+          This is the path to the avatar in cloud.
+        </ResponseField>
+
+        <ResponseField name="local_path" type="string">
+          This is the path to the avatar in local.
+        </ResponseField>
+      <Expandable title="Fields">
     </ResponseField>
 
   </Expandable>
@@ -79,7 +92,11 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agents' \
         "Penny is originally from a small town in Nebraska and moved....",
         "Penny works as a waitress at the Cheesecake Factory, a job...",
         "Penny is a fan of pop culture, particularly TV shows and movies..."
-      ]
+      ],
+      "avatar": {
+        "cloud_path": "xxxxxx",
+        "local_path": ""
+      }
     },
     {
       "id": "xxxxxxxxxxx",
@@ -91,7 +108,11 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agents' \
         "Leonard is a physicist who works at Caltech with his friends Sheldon, Howard, and Raj.",
         "Leonard is originally from New Jersey and has a strained relationship with his mother, who is often critical of him.",
         "Leonard is known for his intelligence and academic achievements, but he also struggles with self-doubt and insecurity."
-      ]
+      ],
+      "avatar": {
+        "cloud_path": "",
+        "local_path": "xxxxxx"
+      }
     }
   ]
 }
