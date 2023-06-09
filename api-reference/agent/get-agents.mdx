@@ -38,11 +38,11 @@ description: "This endpoint returns the full lists of agents associated with a u
       This is the personality of an agent.
     </ResponseField>
 
-    <ResponseField name="initial_status" type="string">
+    <ResponseField name="status" type="string">
       This is the initial status of an agent.
     </ResponseField>
 
-    <ResponseField name="initial_memory" type="object">
+    <ResponseField name="memory" type="object">
       This is the initial memory of an agent.
     </ResponseField>
 
@@ -87,8 +87,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agents' \
       "name": "Penny",
       "age": 22,
       "personality": "Outgoing, friendly, compassionate, assertive, and determined",
-      "initial_status": "Penny is at the Cheesecake Factory",
-      "initial_memory": [
+      "status": "Penny is at the Cheesecake Factory",
+      "memory": [
         "Penny is originally from a small town in Nebraska and moved....",
         "Penny works as a waitress at the Cheesecake Factory, a job...",
         "Penny is a fan of pop culture, particularly TV shows and movies..."
@@ -103,8 +103,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agents' \
       "name": "Leonard",
       "age": 27,
       "personality": "Intelligent, neurotic, kind, analytical, loyal.",
-      "initial_status": "Leonard is at the Cheesecake Factory",
-      "initial_memory": [
+      "status": "Leonard is at the Cheesecake Factory",
+      "memory": [
         "Leonard is a physicist who works at Caltech with his friends Sheldon, Howard, and Raj.",
         "Leonard is originally from New Jersey and has a strained relationship with his mother, who is often critical of him.",
         "Leonard is known for his intelligence and academic achievements, but he also struggles with self-doubt and insecurity."
