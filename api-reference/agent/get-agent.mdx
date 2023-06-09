@@ -6,6 +6,10 @@ description: "This endpoint returns the information of an existing agent."
 
 ### Body
 
+<ParamField body="user_id" type="string">
+  This is the ID of the user.
+</ParamField>
+
 <ParamField body="agent_id" type="string">
   This is the ID of the agent.
 </ParamField>
@@ -65,6 +69,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/get-agent' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
+    "user_id": "xxxxxxxx",
     "agent_id": "xxxxxxxxxxxxxx"
 }'
 ```
