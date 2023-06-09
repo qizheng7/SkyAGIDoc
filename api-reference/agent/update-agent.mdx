@@ -37,19 +37,6 @@ description: "This endpoint updates an agent."
       This is the initial memory of an agent.
     </ResponseField>
 
-    <ResponseField name="avatar" type="object" optional>
-      This is the avatar object of an agent
-      <Expandable title="Fields">
-        <ResponseField name="cloud_path" type="string">
-          This is the path to the avatar in cloud.
-        </ResponseField>
-
-        <ResponseField name="local_path" type="string">
-          This is the path to the avatar in local.
-        </ResponseField>
-      <Expandable title="Fields">
-    </ResponseField>
-
   </Expandable>
 
 </ParamField>
@@ -78,11 +65,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/update-agent' \
           "Penny_2 is originally from a small town in Nebraska and moved....",
           "Penny_2 works as a waitress at the Cheesecake Factory, a job...",
           "Penny_2 is a fan of pop culture, particularly TV shows and movies..."
-        ],
-        "avatar": {
-          "cloud_path": "",
-          "local_path": "xxxxxx"
-          }
+        ]
       }
     ]
 }'
