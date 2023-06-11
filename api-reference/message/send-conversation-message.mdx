@@ -14,38 +14,55 @@ description: "This endpoint sends a conversation message from one agent to anoth
   This is the ID of the agent who initiates the conversation.
 </ParamField>
 
-<ParamField body="initiate_agent_model" type="object">
-  This is the model that the initiate agent uses, along with the model key.
-  <Expandable title="Fields">
-    <ResponseField name="name" type="string">
-      This is the selected model name.
-    </ResponseField>
-
-    <ResponseField name="token" type="string">
-      This is the model token or API key.
-    </ResponseField>
-
-  </Expandable>
-
-</ParamField>
-
 <ParamField body="recipient_agent_id" type="string">
   This is the ID of the agent who receives the conversation.
 </ParamField>
 
 <ParamField body="recipient_agent_model" type="object">
-  This is the model that the recipient agent uses, along with the model key.
+  This is the settings for the LLM and Embedding models that the recipient agent uses, along with the model key.
   <Expandable title="Fields">
-    <ResponseField name="name" type="string">
-      This is the selected model name.
+    <ResponseField name="llm" type="object">
+      This is the settings for LLM.
+        <Expandable title="Fields">
+            <ResponseField name="type" type="string">
+                This is the type of the LLM.
+            </ResponseField>
+
+            <ResponseField name="provider" type="string">
+                This is the provider of the LLM.
+            </ResponseField>
+
+            <ResponseField name="name" type="string">
+                This is the name of the LLM.
+            </ResponseField>
+
+            <ResponseField name="args" type="object">
+                This is the arguments of the LLM, required by Langchain. The arguments can be varied.
+            </ResponseField>
+        </Expandable>    
     </ResponseField>
 
-    <ResponseField name="token" type="string">
-      This is the model token or API key.
-    </ResponseField>
+    <ResponseField name="embedding" type="object">
+      This is the settings for embedding model.
+        <Expandable title="Fields">
+            <ResponseField name="type" type="string">
+                This is the type of the embedding model .
+            </ResponseField>
 
+            <ResponseField name="provider" type="string">
+                This is the provider of the embedding model.
+            </ResponseField>
+
+            <ResponseField name="name" type="string">
+                This is the name of the embedding model.
+            </ResponseField>
+
+            <ResponseField name="args" type="object">
+                This is the arguments of the embedding model, required by Langchain. The arguments can be varied.
+            </ResponseField>
+        </Expandable>
+    </ResponseField>
   </Expandable>
-
 </ParamField>
 
 <ParamField body="message" type="string">
@@ -80,18 +97,31 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-me
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "conversation_id": "xxxxxxxxxxxx",
-    "initiate_agent_id": "xxxxxxxxxxxxxxx",
-    "initiate_agent_model": {
-      "name": "llama-13b",
-      "token": "xxxxxxxxxxxxxxxxx"
+    "conversation_id": "4acf579b-a607-4f02-9d32-7beb0df1b34x",
+    "initiate_agent_id": "cba7fb8b-ff0f-4525-afa6-94bad66ed19a",
+    "recipient_agent_id": "d624ab2d-c565-4f42-bfb6-f4e84700541s",
+    "recipient_agent_model_settings": {
+        "llm": {
+            "type": "ChatOpenAI",
+            "provider": "OpenAI",
+            "name": "openai-gpt-3.5-turbo",
+            "args": {
+                "modelName": "gpt-3.5-turbo",
+                "maxTokens": 1500,
+                "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
+            }
+        },
+        "embedding": {
+            "type": "OpenAIEmbeddings",
+            "provider": "OpenAI",
+            "name": "openai-text-embedding-ada-002",
+            "args": {
+                "modelName": "text-embedding-ada-002",
+                "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
+            }
+        }
     },
-    "recipient_agent_id": "xxxxxxxxxxxxx",
-    "recipient_agent_model": {
-      "name": "gpt-3.5-turbo",
-      "token": "xxxxxxxxxxxxxxxxx"
-    },
-    "message": "hello Leonard."
+    "message": "hey buddy, what are you doing?"
 }'
 ```
 
