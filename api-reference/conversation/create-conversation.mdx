@@ -10,6 +10,10 @@ description: "This endpoint creates a new conversation session"
   This is the name of the new conversation session.
 </ParamField>
 
+<ParamField body="user_id" type="string">
+  This is the ID of current user.
+</ParamField>
+
 <ParamField body="agents" type="object">
   This is an array of the agents involved in the conversation.
   <Expandable title="Fields">
@@ -41,6 +45,31 @@ description: "This endpoint creates a new conversation session"
   This is an array of the agents played by the user.
 </ParamField>
 
+<ParamField body="embedding_model_settings" type="object">
+  This is the embedding model settings.
+  <Expandable title="Fields">
+    <ResponseField name="type" type="string">
+      This is the type of the embedding model.
+    </ResponseField>
+
+    <ResponseField name="provider" type="string">
+      This is the provider of the embedding model.
+    </ResponseField>
+
+    <ResponseField name="name" type="string">
+      This is the name of the embedding model.
+    </ResponseField>
+
+    <ResponseField name="args" type="object">
+      This is the arguments of the embedding model, required by Langchain. The arguments can be varied.
+    </ResponseField>
+
+    <ResponseField name="embeddingSize" type="number">
+      This is the embedding size of the embedding model.
+    </ResponseField>
+  </Expandable>
+</ParamField>
+
 ### Response
 
 <ResponseField name="success" type="number">
@@ -59,6 +88,7 @@ curl --location --request PUT 'https://api.mintlify.com/api/create-conversation'
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "name": "Hello world for BigBangTheory",
+    "user_id": "e971a95c-e503-455c-bdd4-8a5a27efa117",
     "agents": [
       {
         "id": "agent_id_1",
@@ -78,7 +108,17 @@ curl --location --request PUT 'https://api.mintlify.com/api/create-conversation'
     ],
     "user_agent_ids": [
       "agent_id_1"
-    ]
+    ],
+    "embedding_model_settings": {
+        "type": "OpenAIEmbeddings",
+        "provider": "OpenAI",
+        "name": "openai-text-embedding-ada-002",
+        "args": {
+            "modelName": "text-embedding-ada-002",
+            "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
+        },
+        "embeddingSize": 1536
+    }
 }'
 ```
 
