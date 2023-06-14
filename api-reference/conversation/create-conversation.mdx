@@ -21,53 +21,36 @@ description: "This endpoint creates a new conversation session"
       This is the ID of an agent.
     </ResponseField>
 
-    <ResponseField name="model" type="object">
-      This is the name of an agent.
+    <ParamField body="embedding_model_settings" type="object">
+        This is the embedding model settings.
+        <Expandable title="Fields">
+            <ResponseField name="type" type="string">
+                This is the type of the embedding model.
+            </ResponseField>
 
-      <Expandable title="Fields">
+            <ResponseField name="provider" type="string">
+                This is the provider of the embedding model.
+            </ResponseField>
 
-      <ResponseField name="name" type="string">
-          This is the selected model name.
-      </ResponseField>
+            <ResponseField name="name" type="string">
+                This is the name of the embedding model.
+            </ResponseField>
 
-      <ResponseField name="token" type="string">
-          This is the model token or API key.
-      </ResponseField>
+            <ResponseField name="args" type="object">
+                This is the arguments of the embedding model, required by Langchain. The arguments can be varied.
+            </ResponseField>
 
-      </Expandable>
-
-    </ResponseField>
+            <ResponseField name="embeddingSize" type="number">
+                This is the embedding size of the embedding model.
+            </ResponseField>
+        </Expandable>
+    </ParamField>
 
   </Expandable>
 </ParamField>
 
 <ParamField body="user_agent_ids" type="object">
   This is an array of the agents played by the user.
-</ParamField>
-
-<ParamField body="embedding_model_settings" type="object">
-  This is the embedding model settings.
-  <Expandable title="Fields">
-    <ResponseField name="type" type="string">
-      This is the type of the embedding model.
-    </ResponseField>
-
-    <ResponseField name="provider" type="string">
-      This is the provider of the embedding model.
-    </ResponseField>
-
-    <ResponseField name="name" type="string">
-      This is the name of the embedding model.
-    </ResponseField>
-
-    <ResponseField name="args" type="object">
-      This is the arguments of the embedding model, required by Langchain. The arguments can be varied.
-    </ResponseField>
-
-    <ResponseField name="embeddingSize" type="number">
-      This is the embedding size of the embedding model.
-    </ResponseField>
-  </Expandable>
 </ParamField>
 
 ### Response
@@ -88,37 +71,25 @@ curl --location --request PUT 'https://api.mintlify.com/api/create-conversation'
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "name": "Hello world for BigBangTheory",
-    "user_id": "e971a95c-e503-455c-bdd4-8a5a27efa117",
+    "user_id": "e971a95c-e503-455c-bdd4-8a5a27efa100",
     "agents": [
-      {
-        "id": "agent_id_1",
-        "model": {
-          "name": "model_1",
-          "token": "token"
+        {
+            "id": "d624ab2d-c565-4f42-bfb6-f4e8470054ad",
+            "embedding_model_settings": {
+                "type": "OpenAIEmbeddings",
+                "provider": "OpenAI",
+                "name": "openai-text-embedding-ada-002",
+                "args": {
+                    "modelName": "text-embedding-ada-002",
+                    "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpT3BlbkFJ55asdfjRnas"
+                },
+                "embeddingSize": 1536
+            }
         }
-      },
-      {
-        "id": "agent_id_2",
-        "model": {
-          "name": "model_2",
-          "token": "token"
-        }
-      },
-      ......
     ],
     "user_agent_ids": [
-      "agent_id_1"
-    ],
-    "embedding_model_settings": {
-        "type": "OpenAIEmbeddings",
-        "provider": "OpenAI",
-        "name": "openai-text-embedding-ada-002",
-        "args": {
-            "modelName": "text-embedding-ada-002",
-            "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
-        },
-        "embeddingSize": 1536
-    }
+        "cba7fb8b-ff0f-4525-afa6-94bad66ed1sd"
+    ]
 }'
 ```
 
