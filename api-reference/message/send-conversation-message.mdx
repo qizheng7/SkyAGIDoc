@@ -18,7 +18,7 @@ description: "This endpoint sends a conversation message from one agent to anoth
   This is the ID of the agent who receives the conversation.
 </ParamField>
 
-<ParamField body="recipient_agent_model" type="object">
+<ParamField body="recipient_agent_model_settings" type="object">
   This is the settings for the LLM and Embedding models that the recipient agent uses, along with the model key.
   <Expandable title="Fields">
     <ResponseField name="llm" type="object">
@@ -39,7 +39,7 @@ description: "This endpoint sends a conversation message from one agent to anoth
             <ResponseField name="args" type="object">
                 This is the arguments of the LLM, required by Langchain. The arguments can be varied.
             </ResponseField>
-        </Expandable>    
+        </Expandable>
     </ResponseField>
 
     <ResponseField name="embedding" type="object">
@@ -62,6 +62,7 @@ description: "This endpoint sends a conversation message from one agent to anoth
             </ResponseField>
         </Expandable>
     </ResponseField>
+
   </Expandable>
 </ParamField>
 
