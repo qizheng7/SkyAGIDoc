@@ -76,19 +76,12 @@ description: "This endpoint sends a conversation message from one agent to anoth
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="resp_msg" type="object">
-  This is the response from the recipient agent to the initiate agent.
+<ResponseField name="if_continue" type="bool">
+  The flag indicating if the conversation will continue.
+</ResponseField>
 
-  <Expandable title="Fields">
-  <ResponseField name="if_continue" type="bool">
-    The flag indicating if the conversation will continue.
-  </ResponseField>
-
-  <ResponseField name="message" type="string">
-    The response message.
-  </ResponseField>
-  </Expandable>
-
+<ResponseField name="message" type="string">
+  The response message.
 </ResponseField>
 
 <RequestExample>
@@ -133,10 +126,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-me
 ```json Response
 {
   "success": 1,
-  "resp_msg": {
-    "if_continue": true,
-    "message": "hello Penny. How are you?"
-  }
+  "if_continue": true,
+  "message": "hello Penny. How are you?"
 }
 ```
 

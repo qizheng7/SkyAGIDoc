@@ -18,7 +18,7 @@ description: "This endpoint is for asking the initiate agent about whether it wa
   This is the ID of the agent who receives the conversation.
 </ParamField>
 
-<ParamField body="recipient_agent_model" type="object">
+<ParamField body="recipient_agent_model_settings" type="object">
   This is the settings for the LLM models that the recipient agent uses, along with the model key.
   <Expandable title="Fields">
     <ResponseField name="llm" type="object">
@@ -39,8 +39,9 @@ description: "This endpoint is for asking the initiate agent about whether it wa
             <ResponseField name="args" type="object">
                 This is the arguments of the LLM, required by Langchain. The arguments can be varied.
             </ResponseField>
-        </Expandable>    
+        </Expandable>
     </ResponseField>
+
   </Expandable>
 </ParamField>
 
@@ -55,18 +56,12 @@ description: "This endpoint is for asking the initiate agent about whether it wa
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
-<ResponseField name="resp_msg" type="object">
-  This is the response from the initiate agent to either the system or the
-  recipient agent.
-  <Expandable title="Fields">
-  <ResponseField name="is_valid" type="bool">
-    The flag indicating if the response is valid. 
-  </ResponseField>
+<ResponseField name="is_valid" type="bool">
+  The flag indicating if the response is valid.
+</ResponseField>
 
-  <ResponseField name="message" type="string">
-    The response message.
-  </ResponseField>
-  </Expandable>
+<ResponseField name="message" type="string">
+  The response message.
 </ResponseField>
 
 <RequestExample>
@@ -102,10 +97,8 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-system-message'
 ```json Response
 {
   "success": 1,
-  "resp_msg": {
-    "to_system": "Yes",
-    "to_agent": "hello Penny. Do you want to take a walk?"
-  }
+  "is_valid": "Yes",
+  "message": "hello Penny. Do you want to take a walk?"
 }
 ```
 
