@@ -86,7 +86,7 @@ description: "This endpoint sends a conversation message from one agent to anoth
 
 <RequestExample>
 
-```bash Example Request
+```bash Use OpenAI GPT-3.5
 curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-message' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -103,6 +103,45 @@ curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-me
                 "modelName": "gpt-3.5-turbo",
                 "maxTokens": 1500,
                 "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
+            }
+        },
+        "embedding": {
+            "type": "OpenAIEmbeddings",
+            "provider": "OpenAI",
+            "name": "openai-text-embedding-ada-002",
+            "args": {
+                "modelName": "text-embedding-ada-002",
+                "openAIApiKey": "sk-0kqXNq4T5zYUNfESEtdpakdlbkFJ55mNqjRSdgY4ztKjRnas"
+            }
+        }
+    },
+    "message": "hey buddy, what are you doing?"
+}'
+```
+
+```bash Use ModelZ Host LLM
+# Deploy model using ModelZ: https://docs.modelz.ai/gettingstarted/deploy
+# Call to ModelZ endpoint: https://docs.modelz.ai/frameworks/other/openai
+#   1) Set "openAIApiKey" to your ModelZ API Key
+#   2) Set "basePath" to your deployment endpoint
+curl --location --request PUT 'https://api.mintlify.com/api/send-conversation-message' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "conversation_id": "4acf579b-a607-4f02-9d32-7beb0df1b34x",
+    "initiate_agent_id": "cba7fb8b-ff0f-4525-afa6-94bad66ed19a",
+    "recipient_agent_id": "d624ab2d-c565-4f42-bfb6-f4e84700541s",
+    "recipient_agent_model_settings": {
+        "llm": {
+            "type": "ChatOpenAI",
+            "provider": "ModelZ",
+            "name": "modelz-custom-model",
+            "args": {
+                "maxTokens": 1500,
+                "openAIApiKey": "mzi-9eef171b4dc5c7770ec33fsdfa",
+                "configuration": {
+                    "basePath": "https://skyagi-llm-bloomz-560m-40mozbasdfasdf.modelz.io"
+                }
             }
         },
         "embedding": {
